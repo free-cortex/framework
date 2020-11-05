@@ -82,17 +82,18 @@ git push origin generated-pdfs
 
 **07.** Create branch for drafting document
 ```
-git checkout master
-git checkout -b 01-drafting-slides
+git checkout main
+git checkout -b 01-migrating-rtts2020
 ```
 
-**08.** add path for latex document(s) 
+**08.** create path for latex document(s) and add files.
+ammend [main.yml](../../.github/workflow/main.yml) adding this branch 01-migrating-rtts2020
 
 **09.** commit changes
 ```
 git add -A
 git commit -m 'genesis of slides'
-git push origin 01-drafting-slides
+git push origin 01-migrating-rtts2020
 ```
 
 **10.** Create pull request

@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - 01-migrating-rtts2020
 jobs:
   build:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
@@ -12,24 +13,6 @@ jobs:
     - name: Set up Git repository
       uses: actions/checkout@v1
 
-    - name: Compile Example
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: main.tex
-        working_directory: example
-
-    - name: Compile Slides
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: main.tex
-        working_directory: slides
-
-    - name: Compile Thesis
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: thesis.tex
-        working_directory: thesis
-
     - name: Compile Poster
       uses: xu-cheng/latex-action@v2
       with:
@@ -38,9 +21,6 @@ jobs:
 
     - name: Check pdf files
       run: |
-        file example/main.pdf | grep -q ' PDF '
-        file slides/main.pdf | grep -q ' PDF '
-        file thesis/thesis.pdf | grep -q ' PDF '
         file poster/main.pdf | grep -q ' PDF '
 
     - name: Upload
@@ -55,13 +35,10 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
         git clone --depth=1 --branch generated-pdfs git@github.com:o-cortex/framework.git "$GITHUB_WORKSPACE/deploy"
-        cp -f example/main.pdf "$GITHUB_WORKSPACE/deploy/example.pdf"
-        cp -f slides/main.pdf "$GITHUB_WORKSPACE/deploy/slides.pdf"
-        cp -f thesis/thesis.pdf "$GITHUB_WORKSPACE/deploy/thesis.pdf"
         cp -f poster/main.pdf "$GITHUB_WORKSPACE/deploy/poster.pdf"
         cd "$GITHUB_WORKSPACE/deploy"
-        git add example.pdf slides.pdf thesis.pdf poster.pdf
-        git commit -m "[github actions] deploy"
+        git add poster.pdf
+        git commit -m "latex-action deploy"
         git push
       env:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
