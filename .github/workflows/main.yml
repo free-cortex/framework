@@ -34,7 +34,7 @@ jobs:
         echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-        git clone --depth=1 --branch generated-pdfs git@github.com:o-cortex/framework.git "$GITHUB_WORKSPACE/deploy"
+        git clone --depth=1 --branch generated-pdfs git@github.com:free-cortex/framework.git "$GITHUB_WORKSPACE/deploy"
         cp -f poster/main.pdf "$GITHUB_WORKSPACE/deploy/poster.pdf"
         cd "$GITHUB_WORKSPACE/deploy"
         git add poster.pdf

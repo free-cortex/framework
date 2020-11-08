@@ -4,7 +4,7 @@
 **00.** Create repository    
 **01.** clone it locally   
 ```
-git clone git@github.com:o-cortex/framework.git
+git clone git@github.com:free-cortex/framework.git
 git init
 ```
 
@@ -36,7 +36,7 @@ vim .gitignore
 **01.** Add `shh-rsa` key in https://github.com/settings/keys following [the documentation](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account) in github.
 
 **02.** Add a new secret variable called `DEPLOY_KEY` in 
-https://github.com/o-cortex/framework/settings/secrets 
+https://github.com/free-cortex/framework/settings/secrets 
 
 
 Where the value is taken from `id_rsa` with 
@@ -64,7 +64,7 @@ Edit `main.yml` by changing branches and repository name.
 git add . 
 git commit -m "genesis commit [skip ci]"
 git branch -M main
-git remote add origin git@github.com:o-cortex/framework.git
+git remote add origin git@github.com:free-cortex/framework.git
 git push -u origin main
 ```
 
@@ -110,4 +110,5 @@ If CI is successful, slides will be build [here](https://github.com/mxochicale/n
 * sudo apt-get install python-pygments #https://tex.stackexchange.com/questions/40083/how-to-install-minted-in-ubuntu
 
 #### local build
+cd latex-doc/
 make clean && make && evince main.pdf
