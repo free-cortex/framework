@@ -19,6 +19,7 @@ jobs:
       with:
         root_file: main.tex
         working_directory: oxcidocs/poster
+      run: file oxcidocs/poster/main.pdf | grep -q ' PDF '
 
     - name: Compile IEEE article
       if: "!contains(github.event.head_commit.message, '[skip ieee-article]')"
@@ -26,11 +27,7 @@ jobs:
       with:
         root_file: main.tex
         working_directory: oxcidocs/ieee-article
-
-    - name: Check pdf files
-      run: |
-        file oxcidocs/poster/main.pdf | grep -q ' PDF '
-        file oxcidocs/ieee-article/main.pdf | grep -q ' PDF '
+      run: file oxcidocs/ieee-article/main.pdf | grep -q ' PDF '
 
     - name: Upload
       run: |
