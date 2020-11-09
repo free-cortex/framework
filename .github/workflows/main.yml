@@ -14,12 +14,14 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Compile Poster
+      if: "!contains(github.event.head_commit.message, '[skip poster]')"
       uses: xu-cheng/latex-action@v2
       with:
         root_file: main.tex
         working_directory: oxcidocs/poster
 
     - name: Compile IEEE article
+      if: "!contains(github.event.head_commit.message, '[skip ieee-article]')"
       uses: xu-cheng/latex-action@v2
       with:
         root_file: main.tex
