@@ -1,4 +1,4 @@
-name: Compiling-TeX
+name: Compiling-TeX Poster
 on:
   push:
     branches:
