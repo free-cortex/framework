@@ -40,7 +40,9 @@ reusability  and open accessibility.
 
 # Open scientific documents
 ## Poster
-[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX/badge.svg)](https://github.com/free-cortex/framework/actions) [![poster](https://img.shields.io/badge/read-the%20poster-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/poster.pdf)
+[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Poster/badge.svg)](https://github.com/free-cortex/framework/actions) [![poster](https://img.shields.io/badge/read-the%20poster-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/poster.pdf)
+## IEEE Article
+[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-IEEE-article/badge.svg)](https://github.com/free-cortex/framework/actions) [![poster](https://img.shields.io/badge/read-ieee-article-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/ieee-article.pdf)
 
 ## Licence and Citation 
 The work of this poster is under Creative Commons Attribution-Share Alike license [![License: CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/). Hence, you are free to reuse it and modify it as much as you want

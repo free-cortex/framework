@@ -1,4 +1,4 @@
-name: Compiling-TeX IEEE article
+name: Compiling-TeX-IEEE-article
 on:
   push:
     branches:
