@@ -103,6 +103,25 @@ Content: Resolves #1
 If CI is successful, slides will be build [here](https://github.com/mxochicale/nmc3/blob/generated-pdfs/slides.pdf)
 ```
 
+
+
+### Create a new LaTeX doc
+**01.** create a new branch
+```
+git checkout -b 03-ieee-article
+git add -A
+git commit -m 'genesis of ieee-article; refactors latex-docs'
+git push origin 03-ieee-article
+```
+
+**02.** Create pull request
+```
+Title: [WIP] Drafting article
+Content: Resolves #3
+If CI is successful, tex file will be build [here](https://github.com/mxochicale/nmc3/blob/generated-pdfs/ieee-article.pdf)
+```
+
+
 ### (b) Local build
 
 #### Requirements 

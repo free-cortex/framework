@@ -1,7 +1,6 @@
 # free-corTeX
 ## A free continuous integration framework for open scientific communication based-on LaTeX 
 
-## Abstract
 Nearly a decade ago, December 2011, Roger Peng published an spectrum of reproducibility 
 which depicts a roadmap of a scientific outcome
 that went from publication only to full replication that includes code, data and software.
@@ -37,12 +36,13 @@ that are aligned the principles of
 reproducibility, inclusiveness, transparency,
 reusability  and open accessibility.
 
-
 # Open scientific documents
 ## Poster
-[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX/badge.svg)](https://github.com/free-cortex/framework/actions) [![poster](https://img.shields.io/badge/read-the%20poster-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/poster.pdf)
+[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Poster/badge.svg)](https://github.com/free-cortex/framework/actions) [![poster](https://img.shields.io/badge/read-poster-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/poster.pdf)
+## IEEE Article
+[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-IEEE-article/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-ieeearticle-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/ieee-article.pdf)
 
-## Licence and Citation 
+# Licence and Citation 
 The work of this poster is under Creative Commons Attribution-Share Alike license [![License: CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/). Hence, you are free to reuse it and modify it as much as you want
 and as long as you cite [this poster](https://github.com/mxochicale/rrts2020/issues) 
 as original reference and you re-share your work under the same terms.
