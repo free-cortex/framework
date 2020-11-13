@@ -118,14 +118,28 @@ git pull
 git checkout -b $ISSUENUMBER-$BRANCHNAME
 ```
 
-**03.** add path/files and push them
+**03.** edit ci workflow variables
+```
+name: Compiling-TeX-$BRANCHNAME
+on:
+  push:
+    branches:
+      - main
+      - 05-$BRANCHNAME
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip $BRANCHNAME]')"
+```
+
+
+**04.** add path/files and push them
 ```
 git add -A
 git commit -m 'genesis of $BRANCHNAME [skip branches]'
 git push origin $ISSUENUMBER-$BRANCHNAME
 ```
 
-**04.** Create pull request
+**05.** Create pull request
 ```
 Title: [WIP] Drafting $BRANCHNAME
 Content: Resolves #$ISSUENUMBER
