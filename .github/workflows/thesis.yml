@@ -13,7 +13,7 @@ jobs:
     - name: Set up Git repository
       uses: actions/checkout@v1
 
-    - name: Compile Poster
+    - name: Compile Thesis
       uses: xu-cheng/latex-action@v2
       with:
         root_file: main.tex
