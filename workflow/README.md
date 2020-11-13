@@ -131,8 +131,13 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip $BRANCHNAME]')"
 ```
 
-
 **04.** add path/files and push them
+* Edit README for new actions and readme icons
+```
+## Slides
+[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Slides/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-slides-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/slides.pdf)
+```
+* commit and push
 ```
 git add -A
 git commit -m 'genesis of $BRANCHNAME [skip branches]'

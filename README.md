@@ -43,6 +43,8 @@ reusability  and open accessibility.
 [![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-IEEE-article/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-ieeearticle-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/ieee-article.pdf)
 ## Thesis
 [![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Thesis/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-thesis-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/thesis.pdf)
+## Slides
+[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Slides/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-slides-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/slides.pdf)
 
 
 # Licence and Citation 
