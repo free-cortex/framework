@@ -106,19 +106,44 @@ If CI is successful, slides will be build [here](https://github.com/mxochicale/n
 
 
 ### Create a new LaTeX doc
-**01.** create a new branch
+
+**01.** checkout and pull main
 ```
-git checkout -b 03-ieee-article
-git add -A
-git commit -m 'genesis of ieee-article; refactors latex-docs'
-git push origin 03-ieee-article
+git checkout main
+git pull
 ```
 
-**02.** Create pull request
+**02.** create a new branch
 ```
-Title: [WIP] Drafting article
-Content: Resolves #3
-If CI is successful, tex file will be build [here](https://github.com/mxochicale/nmc3/blob/generated-pdfs/ieee-article.pdf)
+git checkout -b $ISSUENUMBER-$BRANCHNAME
+```
+
+**03.** edit ci workflow variables
+```
+name: Compiling-TeX-$BRANCHNAME
+on:
+  push:
+    branches:
+      - main
+      - 05-$BRANCHNAME
+jobs:
+  build:
+    if: "!contains(github.event.head_commit.message, '[skip $BRANCHNAME]')"
+```
+
+
+**04.** add path/files and push them
+```
+git add -A
+git commit -m 'genesis of $BRANCHNAME [skip branches]'
+git push origin $ISSUENUMBER-$BRANCHNAME
+```
+
+**05.** Create pull request
+```
+Title: [WIP] Drafting $BRANCHNAME
+Content: Resolves #$ISSUENUMBER
+If CI is successful, tex file will be build [here](https://github.com/free-cortex/framework/blob/generated-pdfs/$PDFFILE.pdf)
 ```
 
 

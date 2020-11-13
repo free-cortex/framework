@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - 03-ieee-article
+      - 05-thesis
 jobs:
   build:
     if: "!contains(github.event.head_commit.message, '[skip poster]')"
