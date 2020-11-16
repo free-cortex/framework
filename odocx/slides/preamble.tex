@@ -131,3 +131,18 @@
     \end{minipage}%
   \end{center}
 }
+
+
+%-----------------------------------------------------------
+% Add Paper using {\paper{}. begin{beawer} ... end{beamer} }
+%-----------------------------------------------------------
+\newcommand\paper[1]{
+	\setbeamertemplate{footline}
+	{
+		\begin{beamercolorbox}[wd=\textwidth,ht=3mm,dp=03mm,leftskip=0.3cm,rightskip=0.3cm]{black}%
+        		\usebeamerfont{page number in head/foot}
+			(#1)\mbox{}\hfill\insertframenumber
+		\end{beamercolorbox}%
+	}
+}
+
