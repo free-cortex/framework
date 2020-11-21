@@ -33,7 +33,7 @@
 \RequirePackage[table,dvipsnames]{xcolor}
 
 % hyperref setting
-\RequirePackage[a-1b]{pdfx}
+%\RequirePackage[a-1b]{pdfx}
 \RequirePackage{hyperref}
 \hypersetup{
   unicode,
