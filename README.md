@@ -36,7 +36,7 @@ that are aligned the principles of
 reproducibility, inclusiveness, transparency,
 reusability  and open accessibility.
 
-# Open scientific documents
+# Open scientific documents [odocx](/odocx)
 ## Poster
 [![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Poster/badge.svg)](https://github.com/free-cortex/framework/actions) [![poster](https://img.shields.io/badge/read-poster-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/poster.pdf)
 ## IEEE Article

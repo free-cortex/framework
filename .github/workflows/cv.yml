@@ -6,7 +6,7 @@ on:
       - 07-cv
 jobs:
   build:
-    if: "!contains(github.event.head_commit.message, '[skip thesis]')"
+    if: "!contains(github.event.head_commit.message, '[skip cv]')"
     runs-on: ubuntu-latest
     steps:
 
