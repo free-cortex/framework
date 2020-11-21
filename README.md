@@ -45,7 +45,8 @@ reusability  and open accessibility.
 [![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Thesis/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-thesis-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/thesis.pdf)
 ## Slides
 [![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Slides/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-slides-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/slides.pdf)
-
+## CV
+[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-CV/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-cv-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/cv.pdf)
 
 # Licence and Citation 
 The work of this poster is under Creative Commons Attribution-Share Alike license [![License: CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/). Hence, you are free to reuse it and modify it as much as you want

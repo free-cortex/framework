@@ -118,7 +118,7 @@ git pull
 git checkout -b $ISSUENUMBER-$BRANCHNAME
 ```
 
-**03.** edit ci workflow variables
+**03.** Copy, paste and edit ci workflow variables [workflows](https://github.com/free-cortex/framework/tree/main/.github/workflows)
 ```
 name: Compiling-TeX-$BRANCHNAME
 on:
