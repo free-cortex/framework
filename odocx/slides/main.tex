@@ -1,0 +1,53 @@
+\documentclass[xcolor={dvipsnames},aspectratio=169,10pt]{beamer}
+\input{preamble.tex}
+
+\title{Introduction to \LaTeX}
+\subtitle{Writing papers the right way}
+\author{
+{\bf Xu Cheng and  Miguel Xochicale}
+(\faTwitter @\_mxochicale @xu-cheng
+\faGithub @mxochicale @xu-cheng)
+}
+\date{Month Day, Year; HourMinute\\
+	Event title}
+\institute{School of Eng \\{\bf University of X, Earth}}
+\titlegraphic{
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[%
+      above right=0.35cm and -0.2cm of current page footer area.south west,
+      anchor=south west,
+      inner sep=0pt] {%
+      \usebeamerfont{footline}
+      \begin{tabular}{lm{.8\textwidth}}
+        \href{http://creativecommons.org/licenses/by/4.0/}{\ccby} &
+        This work is licensed under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons ``Attribution 4.0 International''} license. \par
+        Get source of this slides and example document from \url{https://github.com/free-cortex/framework}.
+      \end{tabular}
+    };
+    \node[%
+      above left=0.35cm and 0cm of current page footer area.south east,
+      anchor=south east,
+      inner sep=0pt]{\qrcode[height=1.5cm]{https://github.com/free-cortex/framework}};
+  \end{tikzpicture}
+}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Contents}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+%%%%% CONTENT %%%%%%%
+\input{sources/intro}
+\input{sources/basics}
+\input{sources/texts}
+\input{sources/advanced}
+
+\begin{frame}[standout]
+  Thanks \\
+  Questions?
+\end{frame}
+
+\end{document}

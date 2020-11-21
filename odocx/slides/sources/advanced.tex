@@ -1,0 +1,100 @@
+\section{Advanced Usages}
+
+\begin{frame}[fragile]{More Packages}
+  \begin{itemize}
+    \item \textbf{Color}: \href{http://texdoc.net/texmf-dist/doc/latex/graphics/color.pdf}{\emph{color}}, \href{http://texdoc.net/texmf-dist/doc/latex/xcolor/xcolor.pdf}{\emph{xcolor}}
+          \begin{latexcode}
+            \usepackage{color}
+            \usepackage[table,dvipsnames]{xcolor}
+          \end{latexcode}
+    \item \textbf{Draw Boxes}: \href{http://texdoc.net/texmf-dist/doc/latex/tcolorbox/tcolorbox.pdf}{\emph{tcolorbox}}
+    \item \textbf{Draw Graphics}: \href{http://texdoc.net/texmf-dist/doc/generic/pgf/pgfmanual.pdf}{\emph{tikz}}, \href{http://texdoc.net/texmf-dist/doc/latex/overpic/overpic.pdf}{\emph{overpic}}
+    \item \textbf{Slides}: \href{http://texdoc.net/texmf-dist/doc/latex/beamer/beameruserguide.pdf}{\emph{beamer}}
+    \item \textbf{Poster}: \href{http://texdoc.net/texmf-dist/doc/latex/tikzposter/tikzposter.pdf}{\emph{tikzposter}}
+    \item \textbf{Miscellaneous}: \href{http://texdoc.net/texmf-dist/doc/latex/microtype/microtype.pdf}{\emph{microtype}}, \href{http://texdoc.net/texmf-dist/doc/latex/footmisc/footmisc.pdf}{\emph{footmisc}}, \href{http://texdoc.net/texmf-dist/doc/latex/preprint/balance.pdf}{\emph{balance}}
+  \end{itemize}
+\end{frame}
+
+% \begin{noindent}
+\begin{frame}[fragile]{Define Commands and Environment}
+  \begin{itemize}
+    \item Define command using: \latexinline|\newcommand{\name}[num]{definition}|
+          \begin{latexexample}
+            \newcommand{\highlight}[1]{%
+              {\color{red} #1}%
+            }
+            \highlight{Text in red}
+          \end{latexexample}
+    \item Define environment using: \latexinline|\newenvironment{name}[num]{before}{after}|
+          \begin{latexexample}
+            \newenvironment{response}{%
+              \begingroup
+              \textbf{Response}: \itshape
+            }{%
+              \endgroup
+            }
+            \begin{response}
+              Some response.
+            \end{response}
+          \end{latexexample}
+      \item More information: \url{https://en.wikibooks.org/wiki/LaTeX/Macros}
+  \end{itemize}
+\end{frame}
+% \end{noindent}
+
+\begin{frame}[fragile]{\LaTeX~Engines}
+  \begin{itemize}
+    \item There are several \LaTeX~engines
+          \begin{itemize}
+            \item \alert{pdflatex}: most commonly used
+            \item \alert{xelatex} and \alert{lualatex}: new, offer more features
+                  \begin{itemize}
+                    \item better font support, typeset other language than English, etc
+                  \end{itemize}
+          \end{itemize}
+    \item To compile \LaTeX~manually, you usually need run multiple commands
+          \begin{bashcode*}{fontsize=\scriptsize}
+            pdflatex root_file
+            bibtex root_file # or `biber root_file` if using biblatex
+            pdflatex root_file
+            pdflatex root_file
+          \end{bashcode*}
+    \item Or use \bashinline|latexmk| to automatically run commands for you
+          \begin{bashcode*}{fontsize=\scriptsize}
+            latexmk -pdf root_file # use pdflatex
+            latexmk -xelatex root_file # use xelatex
+            latexmk -lualatex root_file # use lualatex
+          \end{bashcode*}
+    \item Some \LaTeX~editors (such as VSCode with LaTeX Workshop, Vim with vimtex) use \bashinline|latexmk| under the hook
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Other Command Line Tools}
+  \begin{itemize}
+    \item \textbf{latexmk}
+          \begin{itemize}
+            \item In addition to build project, it can also be used to clean up auxiliary files
+                  \begin{bashcode*}{fontsize=\scriptsize}
+                    latexmk -c
+                  \end{bashcode*}
+            \item It is highly customizable. You can create \mintinline{bash}|.latexmkrc| file to configure \bashinline|latexmk|. \\ document: \texdoc{latexmk}{http://texdoc.net/texmf-dist/doc/support/latexmk/latexmk.pdf}
+                  \inputminted[fontsize=\scriptsize]{perl}{./minted/latexmkrc}
+          \end{itemize}
+    \item \textbf{chktex}: Lint the \LaTeX{} source code for common problem. document: \texdoc{chktex}{http://texdoc.net/texmf-dist/doc/chktex/ChkTeX.pdf}
+    \item \textbf{latexindent}: Format the \LaTeX{} source code. document: \texdoc{latexindent}{http://texdoc.net/texmf-dist/doc/support/latexindent/latexindent.pdf}
+    \item \textbf{latexdiff}: Marking up difference between \LaTeX{} files. document: \texdoc{latexdiff}{http://texdoc.net/texmf-dist/doc/support/latexdiff/doc/latexdiff-man.pdf}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Further Readings}
+  \begin{itemize}
+    \item \LaTeX~Wikibooks: \url{https://en.wikibooks.org/wiki/LaTeX}
+    \item The Not So Short Introduction to \LaTeXe: \texdoc{lshort}{http://texdoc.net/texmf-dist/doc/latex/lshort-english/lshort.pdf}
+    \item Short Math Guide for \LaTeX: \texdoc{short-math-guide}{http://texdoc.net/texmf-dist/doc/latex/short-math-guide/short-math-guide.pdf}
+    \item The TeX FAQ List: \url{https://texfaq.org}
+    \item LaTeX Stack Exchange: \url{https://tex.stackexchange.com}
+    \item Always remember to use \alert{Google} when you encounter problems
+  \end{itemize}
+\end{frame}
+
+
