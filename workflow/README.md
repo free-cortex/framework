@@ -39,8 +39,8 @@ vim .gitignore
 https://github.com/free-cortex/framework/settings/secrets 
 
 
-Where the value is taken from `id_rsa` with 
-vim ~/.ssh/id_rsa   
+Where the value is taken from `id_rsa` with   
+xclip -selection clipboard < ~/.ssh/id_rsa   
 which looks like:  
 ```
 -----BEGIN RSA PRIVATE KEY-----
@@ -53,7 +53,8 @@ which looks like:
 `.github/workflow/*.yml` and then create main.yml 
 ```
 mkdir -p .github/workflows
-cd .github/workflows && wget https://raw.githubusercontent.com/mxochicale/learning-latex-action/master/.github/workflows/main.yml
+cd .github/workflows && wget https://raw.githubusercontent.com/free-cortex/framework/main/.github/workflows/template.yml
+mv template.yml $DESIRED_NAME.yml
 ```
 * Setting up variables for pdf documents and keys in .github/workflows/main.yml. 
 See this [main.yml](https://github.com/mxochicale/learning-latex-action/blob/master/.github/workflows/main.yml) as example.
@@ -71,13 +72,13 @@ git push -u origin main
 
 **05.** Raise an issue
 
-**06.** Create a generated-pdfs branch for the pdf files [(see more)](https://www.freecodecamp.org/forum/t/push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too/13222).
+**06.** Create a pdfs branch for the pdf files [(see more)](https://www.freecodecamp.org/forum/t/push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too/13222).
 ```
-git checkout -b generated-pdfs
+git checkout -b pdfs
 rm -rf * README.md .github .gitignore *swp ~.git 
 git add -A
-git commit -m 'clean generated-pdfs branch'
-git push origin generated-pdfs
+git commit -m 'clean pdfs branch'
+git push origin pdfs
 ```
 
 **07.** Create branch for drafting document
@@ -86,8 +87,8 @@ git checkout main
 git checkout -b 01-migrating-rtts2020
 ```
 
-**08.** create path for latex document(s) and add files.
-ammend [main.yml](../../.github/workflow/main.yml) adding this branch 01-migrating-rtts2020
+**08.** create path for latex document(s) and add files.   
+ammend [main.yml](../../.github/workflow/template.yml) adding this branch 01-migrating-rtts2020  
 
 **09.** commit changes
 ```
@@ -100,7 +101,7 @@ git push origin 01-migrating-rtts2020
 ```
 Title: [WIP] Drafting slides
 Content: Resolves #1 
-If CI is successful, slides will be build [here](https://github.com/mxochicale/nmc3/blob/generated-pdfs/slides.pdf)
+If CI is successful, slides will be build [here](https://github.com/mxochicale/nmc3/blob/pdfs/slides.pdf)
 ```
 
 
@@ -135,7 +136,7 @@ jobs:
 * Edit README for new actions and readme icons
 ```
 ## Slides
-[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Slides/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-slides-blue.svg)](https://github.com/free-cortex/framework/blob/generated-pdfs/slides.pdf)
+[![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Slides/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-slides-blue.svg)](https://github.com/free-cortex/framework/blob/pdfs/slides.pdf)
 ```
 * commit and push
 ```
@@ -148,7 +149,7 @@ git push origin $ISSUENUMBER-$BRANCHNAME
 ```
 Title: [WIP] Drafting $BRANCHNAME
 Content: Resolves #$ISSUENUMBER
-If CI is successful, tex file will be build [here](https://github.com/free-cortex/framework/blob/generated-pdfs/$PDFFILE.pdf)
+If CI is successful, tex file will be build [here](https://github.com/free-cortex/framework/blob/pdfs/$PDFFILE.pdf)
 ```
 
 
@@ -159,5 +160,8 @@ If CI is successful, tex file will be build [here](https://github.com/free-corte
 * sudo apt-get install python-pygments #https://tex.stackexchange.com/questions/40083/how-to-install-minted-in-ubuntu
 
 #### local build
+```
 cd latex-doc/
 make clean && make && evince main.pdf
+make clean
+```
