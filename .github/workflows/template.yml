@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - 05-template 
+      - 00-template 
 
 jobs:
   build:
