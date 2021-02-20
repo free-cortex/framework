@@ -5,11 +5,12 @@
 **01.** clone it locally   
 ```
 git clone git@github.com:free-cortex/framework.git
+cd framework
 git init
 ```
 
 **02.** create .gitignore  
-vim .gitignore
+Download and edit `.gitignore`
 ```
 # Ignored paths and directories
 ## pycharm project path
@@ -33,20 +34,29 @@ vim .gitignore
 ```
 
 ### Create Github Actions
-**01.** Add `shh-rsa` key in https://github.com/settings/keys following [the documentation](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account) in github.
+**01** Create a deploy key with `ssh-keygen -m PEM -t rsa -b 4096 -C "your_email@example.com"` [:link:](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+[:link:](https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html)
 
 **02.** Add a new secret variable called `DEPLOY_KEY` in 
 https://github.com/free-cortex/framework/settings/secrets 
 
-
-Where the value is taken from `id_rsa` with   
-xclip -selection clipboard < ~/.ssh/id_rsa   
+Where the value is taken from `id_rsa` with 
+```
+xclip -selection clipboard < ~/.ssh/id_rsa
+```
 which looks like:  
 ```
 -----BEGIN RSA PRIVATE KEY-----
 ...
 -----END RSA PRIVATE KEY-----
 ```
+* Don't forget to "Adding your SSH key to the ssh-agent" and be authentified [:link:](https://docs.github.com/en/enterprise/2.13/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
+```
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+ssh -T git@github.com 
+```
+
 
 ### Create Github workflow
 **03.** Create github action workflow
