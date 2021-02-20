@@ -2,7 +2,7 @@ name: Compiling-TeX-Template
 on:
   push:
     branches:
-      - main
+      - no-main
       - 00-template 
 
 jobs:
