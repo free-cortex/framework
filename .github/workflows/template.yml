@@ -1,9 +1,9 @@
-name: Compiling-TeX-Template
+name: Compiling-TeX-$ADD_NAME_DOC_TYPE
 on:
   push:
     branches:
       - no-main
-      - 00-template 
+      - $ADD_ISSUENUMER_NAME
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
     - name: Set up Git repository
       uses: actions/checkout@v1
 
-    - name: Compile Thesis
+    - name: Compile $ADD_TYPE_OF_DOCUMENT
       uses: xu-cheng/latex-action@v2
       with:
         root_file: main.tex
@@ -35,10 +35,10 @@ jobs:
         echo "$DEPLOY_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
-        git clone --depth=1 --branch pdfs git@github.com:free-cortex/framework.git "$GITHUB_WORKSPACE/deploy"
-        cp -f odocx/thesis/main.pdf "$GITHUB_WORKSPACE/deploy/thesis.pdf"
+        git clone --depth=1 --branch pdfs git@github.com:$ADD_MAIN_REPO/$ADD_REPO_NAME.git "$GITHUB_WORKSPACE/deploy"
+        cp -f odocx/thesis/main.pdf "$GITHUB_WORKSPACE/deploy/$ADD_FILENAME.pdf"
         cd "$GITHUB_WORKSPACE/deploy"
-        git add thesis.pdf 
+        git add $ADD_FILE_NAME.pdf 
         git commit -m "latex-action deploy"
         git push
       env:
