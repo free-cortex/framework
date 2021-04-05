@@ -6,7 +6,7 @@ on:
       - 05-thesis
 jobs:
   build:
-    if: "!contains(github.event.head_commit.message, '[skip-thesis]') && contains(github.event.head_commit.message, 'SKIPALL')"
+    if: "contains(github.event.head_commit.message, 'CI-THESIS')"
     runs-on: ubuntu-latest
     steps:
 
