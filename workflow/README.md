@@ -16,8 +16,7 @@ rm -rf * README.md .github .gitignore *swp ~.git .idea
 git add -A
 git commit -m 'clean pdfs branch'
 git push origin pdfs
-git checkout main
-```
+ ```
 
 **02.** create .gitignore  
 Download and edit `.gitignore`
@@ -94,7 +93,7 @@ git push -u origin main
 
 ## Create a new LaTeX doc
 
-**00.** Raise an issue
+**00.** Raise a new issue
 
 **01.** checkout and pull main
 ```
@@ -161,7 +160,7 @@ You can add capital CI and the type of document for its CI build or nothing
 See workflows [`*.yml`](../.github/workflows/) 
 
 
-## Local build in Ubuntu 18.04 x64
+## Local build in Ubuntu 18.04 (20.04) x64
 ### Installation of dependencies
 
 ```
@@ -210,18 +209,40 @@ Use [`Git Bash` to set up SSH keys](https://docs.github.com/en/github/authentica
    04.04 Close and open Cygwin  
    04.05 Accessing your files   
         cd /cygdrive/c/Users/$USERNAME/UNT/gift-surg/unt-manuscript-2021/journal-of-imaging-2021/manuscript-tex
+   05. Install make in GitBASH
+    > Keep in mind you can easy add make, but it doesn't come packaged with all the standard UNIX build toolchain--so you will have to ensure those are installed and on your PATH, or you will encounter endless error messages.    
+    [ref](https://gist.github.com/evanwill/0207876c3243bbb6863e65ec5dc3f058)
+    
+    05.01 Go to https://sourceforge.net/projects/ezwinports/     
+    05.02 Download make-4.1-2-without-guile-w32-bin.zip (get the version without guile).  
+    05.03 Extract zip.  
+    05.04 Copy the contents to your Git\mingw64\ merging the folders, but do NOT overwrite/replace any existing files    
 
-### Local build
+### Local build using GitBash
+01. Open Gitbash and go to 
+    cd `~/.../unt-manuscript-2021/journals/ieee-tbe-2021/manuscript-tex`
+02. make and clean project
+```bibtex
+make 
+make clean
+```
+03. Open pdf just type `explorer main.pdf`
+04. commit changes
+* add `CI-IEEE-TBE` anywhere in your commit message for ci tex build
+
+
+### Local build using Cygwin64 
 01. Open Cygwin64
-02. Go to with `cd /cygdrive/c/Users/$USERNAME/path-of-the-tex-project`
+02. Go to with `cd /cygdrive/c/Users/$USERNAME/UNT/gift-surg/unt-manuscript-2021/journal-of-imaging-2021/manuscript-tex`
 03. Built, clean and view
     * `make` 
     * cygstart.exe main.pdf #to view pdf
     * `make clean`
 04. commit changes 
-    * add `CI-DOCTYPE` anywhere in the commit message to build tex files with github action. 
+    * add `[skip-joi2021]` anywhere in the commit message, when you do not build tex files with github action. 
     
 ## Multiple users working in the same branch 
+
 ### In pycharm
 01. Checkout branch `origin/#NumberOfIssue-#BranchName`  
 02. Click on the blue arrow (Ctrt+T) and choose `merge in coming changes into the current branch`  
@@ -230,7 +251,41 @@ Use [`Git Bash` to set up SSH keys](https://docs.github.com/en/github/authentica
 03. Make your changes and commit with a message adding `CI-DOCTYPE` anywhere in the commit message to build tex files with github action.  
 :warning: User would try to avoid working on the same file as it might create conflicts (recommended to have a chat).
     
-## General recommendations 
+### Figures workflow using vector images
+To create figures using vector files with inkscape, the following template is used 
+where vectors path has svg files, `drawing-vNN.svg` where NN is the number of version, 
+reference for other images and versions for png or pdf outputs. See one example of
+ the path organisation:
+```
+.
+├── Makefile
+├── README.md
+├── references
+│   └── README.md
+├── vectors
+│   └── drawing-v00.svg
+│   └── drawing-v01.svg
+└── versions
+    ├── drawing-v00.png
+    ├── drawing-v01.png
+    └── README.md
+```
+When creating a new version, modify `/vectors/drawing-v00.svg` 
+and use the latest version for instance, a copy of v02 to create for instance v03.
+
+#### GNU/Linux users:
+Type the following in the terminal
+```
+make
+mv versions/drawing.png versions/drawing-vNN.png #todo: add this in the makefile
+```
+
+#### Windows users:
+open /svgpath/drawing.svg with inkscape using the explorer to make modifications (use `explorer .` in Cygwin)
+Then go to the menu `File>Export PNG image...` export the figure. 
+In such window select path and filename to be, for instance, `/versions/drawing-v03.png` and click Export as.
+
+
 ### References  
 To avoid any conflicts when two persons are working in the same file such as references.
 `references_blurs.bib` contains any potential references that can then be moved to 
@@ -275,39 +330,16 @@ $ git stash pop stash@{n} #To apply a stash and remove it from the stash stack, 
 Where n is the index of the stashed change.
 ```
 
-## Figures workflow using vector images
-To create figures using vector files with inkscape, the following template is used 
-where vectors path has svg files, `drawing-vNN.svg` where NN is the number of version, 
-reference for other images and versions for png or pdf outputs. See one example of
- the path organisation:
+### Rebase branch 
+See the following comments to-rebase-local-branch-onto-remote-master using the terminal [ref](https://stackoverflow.com/questions/7929369/)
 ```
-.
-├── Makefile
-├── README.md
-├── references
-│   └── README.md
-├── vectors
-│   └── drawing-v00.svg
-│   └── drawing-v01.svg
-└── versions
-    ├── drawing-v00.png
-    ├── drawing-v01.png
-    └── README.md
-```
-When creating a new version, modify `/vectors/drawing-v00.svg` 
-and use the latest version for instance, a copy of v02 to create for instance v03.
-
-### GNU/Linux users:
-Type the following in the terminal
-```
-make
-mv versions/drawing.png versions/drawing-vNN.png #todo: add this in the makefile
+git checkout main
+git pull origin main
+git checkout RB
+git rebase main
+git push --force origin RB
 ```
 
-### Windows users:
-open /svgpath/drawing.svg with inkscape using the explorer to make modifications (use `explorer .` in Cygwin)
-Then go to the menu `File>Export PNG image...` export the figure. 
-In such window select path and filename to be, for instance, `/versions/drawing-v03.png` and click Export as.
 
 ## References
 * [VIDEO: How to Install TeX Live and TeXstudio in Windows](https://www.youtube.com/watch?v=rUz5kRYP9w4)
