@@ -1,14 +1,14 @@
 # Workflow 
 
 ## Content
-* 1. Create repository and setting up of files and branches
-* 2. Create Github Actions
-* 3. Create Github workflow
-* 4. Create a new LaTeX doc
-* 5. Local build in Ubuntu 18.04 (20.04) x64
-* 6. Local build in Windows 10 Enterprise Version 1803
-* 7. Multiple users working in the same branch 
-* 8. References
+* **1.** Create repository and setting up of files and branches [:arrow_heading_down:](#1-create-repository-and-setting-up-of-files-and-branches)
+* **2.** Create Github Actions [:arrow_heading_down:](#2-create-github-actions)
+* **3.** Create Github workflow [:arrow_heading_down:](#3-create-github-workflow)
+* **4.** Create a new LaTeX doc [:arrow_heading_down:](#4-create-a-new-latex-doc)
+* **5.** Local build in Ubuntu 18.04 (20.04) x64 [:arrow_heading_down:](#5-local-build-in-ubuntu-1804-2004-x64)
+* **6.** Local build in Windows 10 Enterprise Version 1803 [:arrow_heading_down:](#6-local-build-in-windows-10-enterprise-version-1803)
+* **7.** Multiple users working in the same branch  [:arrow_heading_down:](#7-multiple-users-working-in-the-same-branch)
+* **8.** References [:arrow_heading_down:](#8-references)
 
 ## 1. Create repository and setting up of files and branches
 **01.** Create repository in your github account   
@@ -350,7 +350,7 @@ git push --force origin RB
 ```
 
 
-## 8. References
+## 8. References [:top:](workflow#content)
 * [VIDEO: How to Install TeX Live and TeXstudio in Windows](https://www.youtube.com/watch?v=rUz5kRYP9w4)
 * [How to Install LaTeX on windows 10](https://www.youtube.com/watch?v=cmVNPtW3RuQ)
 * [tex-live-on-cygwin-a-few-tricks/](https://darrengoossens.wordpress.com/2014/07/16/tex-live-on-cygwin-a-few-tricks/)

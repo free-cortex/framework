@@ -21,6 +21,9 @@ The adoption of free-corTeX might lead to scientific outcomes that are well alig
 ## CV  [:link:](odocx/cv)
 [![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-CV/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-cv-blue.svg)](https://github.com/free-cortex/framework/blob/pdfs/cv.pdf)
 
+## Usage
+See [workflow](workflow) for further details on the usage of the framework.
+
 ## Clone repository
 After generating your SSH keys as suggested [here](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent), you can then clone the repository by typing (or copying) the following line in a terminal at your selected path in your machine:
 ```
