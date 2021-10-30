@@ -1,14 +1,14 @@
 # Workflow 
 
 ## Content
-* **1.** Create repository and setting up of files and branches [:arrow_down:](#1-create-repository-and-setting-up-of-files-and-branches)
-* **2.** Create Github Actions [:arrow_down:](#2-create-github-actions)
-* **3.** Create Github workflow [:arrow_down:](#3-create-github-workflow)
-* **4.** Create a new LaTeX doc [:arrow_down:](#4-create-a-new-latex-doc)
-* **5.** Local build in Ubuntu 18.04 (20.04) x64 [:arrow_down:](#5-local-build-in-ubuntu-1804-2004-x64)
-* **6.** Local build in Windows 10 Enterprise Version 1803 [:arrow_down:](#6-local-build-in-windows-10-enterprise-version-1803)
-* **7.** Multiple users working in the same branch  [:arrow_down:](#7-multiple-users-working-in-the-same-branch)
-* **8.** References [:arrow_down:](#8-references)
+* **1.** Create repository and setting up of files and branches [:arrow_down:](#1-create-repository-and-setting-up-of-files-and-branches-top)
+* **2.** Create Github Actions [:arrow_down:](#2-create-github-actions-top)
+* **3.** Create Github workflow [:arrow_down:](#3-create-github-workflow-top)
+* **4.** Create a new LaTeX doc [:arrow_down:](#4-create-a-new-latex-doc-top)
+* **5.** Local build in Ubuntu 18.04 (20.04) x64 [:arrow_down:](#5-local-build-in-ubuntu-1804-2004-x64-top)
+* **6.** Local build in Windows 10 Enterprise Version 1803 [:arrow_down:](#6-local-build-in-windows-10-enterprise-version-1803-top)
+* **7.** Multiple users working in the same branch  [:arrow_down:](#7-multiple-users-working-in-the-same-branch-top)
+* **8.** References [:arrow_down:](#8-references-top)
 
 ## 1. Create repository and setting up of files and branches [:top:](#content)
 **01.** Create repository in your github account   
