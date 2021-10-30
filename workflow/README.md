@@ -1,9 +1,20 @@
 # Workflow 
 
-## Create repository and essential files and branches
-**00.** Create repository    
-**01.** clone it locally   
+## Content
+* 1. Create repository and setting up of files and branches
+* 2. Create Github Actions
+* 3. Create Github workflow
+* 4. Create a new LaTeX doc
+* 5. Local build in Ubuntu 18.04 (20.04) x64
+* 6. Local build in Windows 10 Enterprise Version 1803
+* 7. Multiple users working in the same branch 
+* 8. References
+
+## 1. Create repository and setting up of files and branches
+**01.** Create repository in your github account   
+**02.** clone `free-cortex/framework.git` locally   
 ```
+mkdir -p $HOME/repositories && cd $HOME/repositories 
 git clone git@github.com:free-cortex/framework.git
 cd framework
 git init
@@ -18,7 +29,7 @@ git commit -m 'clean pdfs branch'
 git push origin pdfs
  ```
 
-**02.** create .gitignore  
+**04.** create .gitignore  
 Download and edit `.gitignore`
 ```
 # Ignored paths and directories
@@ -43,7 +54,7 @@ Download and edit `.gitignore`
 ```
 
 
-## Create Github Actions
+## 2. Create Github Actions
 **01** Create a deploy key with `ssh-keygen -m PEM -t rsa -b 4096 -C "your_email@example.com"` [:link:](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 [:link:](https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html)
 
@@ -68,8 +79,8 @@ ssh -T git@github.com
 ```
 
 
-## Create Github workflow
-**03.** Create github action workflow
+## 3. Create Github workflow
+**01.** Create github action workflow
 `.github/workflow/*.yml` and then create main.yml 
 ```
 mkdir -p .github/workflows
@@ -77,10 +88,9 @@ cd .github/workflows && wget https://raw.githubusercontent.com/free-cortex/frame
 mv template.yml $DESIRED_NAME.yml
 ```
 * Setting up variables for pdf documents and keys in .github/workflows/main.yml. 
-See this [template.yml](../.github/workflows/template.yml) as example.
-Edit `template.yml` by changing branches and repository name.
+See this [template.yml](../.github/workflows/template.yml) as example and edit `template.yml` by changing branches and repository name that are in capital. You also need to change `git config --global user.name "$USERNAME"` and `git config --global user.email "$EMAIL"`
 
-**04.** Commit genesis in the main branch using `CI-CV` for CV (or no capital flags for CI build) in the commit 
+**02.** Commit genesis in the main branch using `CI-CV` for CV (or no capital flags for CI build) in the commit 
 ```
 git add . 
 git commit -m "genesis commit CI-CV"
@@ -90,23 +100,22 @@ git push -u origin main
 ```
 
 
+## 4. Create a new LaTeX doc
 
-## Create a new LaTeX doc
+**01.** Raise a new issue in your repository
 
-**00.** Raise a new issue
-
-**01.** checkout and pull main
+**02.** checkout and pull main branch
 ```
 git checkout main
 git pull
 ```
 
-**02.** create a new branch
+**03.** create a new branch based on the issue number and a short description
 ```
 git checkout -b $ISSUENUMBER-$BRANCHNAME
 ```
 
-**03.** Create github action workflow
+**04.** Create github action workflow
 `.github/workflow/*.yml` and then create main.yml 
 ```
 mkdir -p .github/workflows
@@ -127,9 +136,9 @@ jobs:
     if: "contains(github.event.head_commit.message, 'CI-$BRANCHNAME')"
 ```
 See this [template.yml](../.github/workflows/template.yml) as example.
+Same as above, change username and email. `git config --global user.name "$USERNAME"` and `git config --global user.email "$EMAIL"`
 
-
-**04.** commit genesis and add path/files and push them
+**05.** commit genesis and add path/files and push them
 ```
 git add -A
 git commit -m ':fire: genesis of $BRANCHNAME [skip branches]'
@@ -142,7 +151,7 @@ git push origin $ISSUENUMBER-$BRANCHNAME
 [![GitHub Actions Status](https://github.com/free-cortex/framework/workflows/Compiling-TeX-Slides/badge.svg)](https://github.com/free-cortex/framework/actions) [![ieee-poster](https://img.shields.io/badge/read-slides-blue.svg)](https://github.com/free-cortex/framework/blob/pdfs/slides.pdf)
 ```
 
-**05.** Create pull request
+**06.** Create pull request
 ```
 Title: [WIP] Drafting $BRANCHNAME
 Content: Resolves #$ISSUENUMBER
@@ -150,19 +159,19 @@ If CI is successful, tex file will be built [here](https://github.com/free-corte
 ```
 
 
-**06.** keep making commit until the issue is sorted out
+**07.** keep making commit until the issue is sorted out
 ```
 git add -A
 git commit -m ':fire: genesis of $BRANCHNAME'
 git push origin $ISSUENUMBER-$BRANCHNAME
 ```
 You can add capital CI and the type of document for its CI build or nothing 
-See workflows [`*.yml`](../.github/workflows/) 
+See other workflows [`*.yml`](../.github/workflows/) 
 
 
-## Local build in Ubuntu 18.04 (20.04) x64
-### Installation of dependencies
-
+## 5. Local build in Ubuntu 18.04 (20.04) x64
+### Installation TeX Live
+In your terminal type (or copy) the following lines:
 ```
 mkdir -p $HOME/Downloads/latex && cd $HOME/Downloads/latex
 wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
@@ -172,6 +181,7 @@ cd $HOME
 echo '# Setting PATH of the TeX Live binaries'
 echo 'export PATH=/usr/local/texlive/2020/bin/x86_64-linux/:$PATH'
 ```
+See further details [here](https://github.com/mxochicale/tools/tree/main/latex/installation).
 
 ### Local build
 In your terminal:
@@ -181,7 +191,7 @@ make clean && make && make view
 make clean
 ```
 
-## Local build in Windows 10 Enterprise Version 1803
+## 6. Local build in Windows 10 Enterprise Version 1803
 ### Generating a new SSH key and adding it to the ssh-agent
 Use [`Git Bash` to set up SSH keys](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
@@ -241,8 +251,7 @@ make clean
 04. commit changes 
     * add `[skip-joi2021]` anywhere in the commit message, when you do not build tex files with github action. 
     
-## Multiple users working in the same branch 
-
+## 7. Multiple users working in the same branch 
 ### In pycharm
 01. Checkout branch `origin/#NumberOfIssue-#BranchName`  
 02. Click on the blue arrow (Ctrt+T) and choose `merge in coming changes into the current branch`  
@@ -341,7 +350,7 @@ git push --force origin RB
 ```
 
 
-## References
+## 8. References
 * [VIDEO: How to Install TeX Live and TeXstudio in Windows](https://www.youtube.com/watch?v=rUz5kRYP9w4)
 * [How to Install LaTeX on windows 10](https://www.youtube.com/watch?v=cmVNPtW3RuQ)
 * [tex-live-on-cygwin-a-few-tricks/](https://darrengoossens.wordpress.com/2014/07/16/tex-live-on-cygwin-a-few-tricks/)
