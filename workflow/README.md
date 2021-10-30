@@ -1,16 +1,16 @@
 # Workflow 
 
 ## Content
-* **1.** Create repository and setting up of files and branches [:arrow_heading_down:](#1-create-repository-and-setting-up-of-files-and-branches)
-* **2.** Create Github Actions [:arrow_heading_down:](#2-create-github-actions)
-* **3.** Create Github workflow [:arrow_heading_down:](#3-create-github-workflow)
-* **4.** Create a new LaTeX doc [:arrow_heading_down:](#4-create-a-new-latex-doc)
-* **5.** Local build in Ubuntu 18.04 (20.04) x64 [:arrow_heading_down:](#5-local-build-in-ubuntu-1804-2004-x64)
-* **6.** Local build in Windows 10 Enterprise Version 1803 [:arrow_heading_down:](#6-local-build-in-windows-10-enterprise-version-1803)
-* **7.** Multiple users working in the same branch  [:arrow_heading_down:](#7-multiple-users-working-in-the-same-branch)
-* **8.** References [:arrow_heading_down:](#8-references)
+* **1.** Create repository and setting up of files and branches [:arrow_down:](#1-create-repository-and-setting-up-of-files-and-branches)
+* **2.** Create Github Actions [:arrow_down:](#2-create-github-actions)
+* **3.** Create Github workflow [:arrow_down:](#3-create-github-workflow)
+* **4.** Create a new LaTeX doc [:arrow_down:](#4-create-a-new-latex-doc)
+* **5.** Local build in Ubuntu 18.04 (20.04) x64 [:arrow_down:](#5-local-build-in-ubuntu-1804-2004-x64)
+* **6.** Local build in Windows 10 Enterprise Version 1803 [:arrow_down:](#6-local-build-in-windows-10-enterprise-version-1803)
+* **7.** Multiple users working in the same branch  [:arrow_down:](#7-multiple-users-working-in-the-same-branch)
+* **8.** References [:arrow_down:](#8-references)
 
-## 1. Create repository and setting up of files and branches
+## 1. Create repository and setting up of files and branches [:top:](#content)
 **01.** Create repository in your github account   
 **02.** clone `free-cortex/framework.git` locally   
 ```
@@ -54,7 +54,7 @@ Download and edit `.gitignore`
 ```
 
 
-## 2. Create Github Actions
+## 2. Create Github Actions [:top:](#content)
 **01** Create a deploy key with `ssh-keygen -m PEM -t rsa -b 4096 -C "your_email@example.com"` [:link:](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 [:link:](https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html)
 
@@ -79,7 +79,7 @@ ssh -T git@github.com
 ```
 
 
-## 3. Create Github workflow
+## 3. Create Github workflow [:top:](#content)
 **01.** Create github action workflow
 `.github/workflow/*.yml` and then create main.yml 
 ```
@@ -100,7 +100,7 @@ git push -u origin main
 ```
 
 
-## 4. Create a new LaTeX doc
+## 4. Create a new LaTeX doc [:top:](#content)
 
 **01.** Raise a new issue in your repository
 
@@ -169,7 +169,7 @@ You can add capital CI and the type of document for its CI build or nothing
 See other workflows [`*.yml`](../.github/workflows/) 
 
 
-## 5. Local build in Ubuntu 18.04 (20.04) x64
+## 5. Local build in Ubuntu 18.04 (20.04) x64 [:top:](#content)
 ### Installation TeX Live
 In your terminal type (or copy) the following lines:
 ```
@@ -191,7 +191,7 @@ make clean && make && make view
 make clean
 ```
 
-## 6. Local build in Windows 10 Enterprise Version 1803
+## 6. Local build in Windows 10 Enterprise Version 1803 [:top:](#content)
 ### Generating a new SSH key and adding it to the ssh-agent
 Use [`Git Bash` to set up SSH keys](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
@@ -251,7 +251,7 @@ make clean
 04. commit changes 
     * add `[skip-joi2021]` anywhere in the commit message, when you do not build tex files with github action. 
     
-## 7. Multiple users working in the same branch 
+## 7. Multiple users working in the same branch [:top:](#content)
 ### In pycharm
 01. Checkout branch `origin/#NumberOfIssue-#BranchName`  
 02. Click on the blue arrow (Ctrt+T) and choose `merge in coming changes into the current branch`  
@@ -350,7 +350,7 @@ git push --force origin RB
 ```
 
 
-## 8. References [:top:](workflow#content)
+## 8. References [:top:](#content)
 * [VIDEO: How to Install TeX Live and TeXstudio in Windows](https://www.youtube.com/watch?v=rUz5kRYP9w4)
 * [How to Install LaTeX on windows 10](https://www.youtube.com/watch?v=cmVNPtW3RuQ)
 * [tex-live-on-cygwin-a-few-tricks/](https://darrengoossens.wordpress.com/2014/07/16/tex-live-on-cygwin-a-few-tricks/)
